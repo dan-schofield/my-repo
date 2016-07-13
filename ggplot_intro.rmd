@@ -89,6 +89,30 @@ b <- ggplot(g, aes(x = continent, y = lifeExp)) +
 b
 ```
 
+```{r}
+suppressPackageStartupMessages({
+  library(googleVis) # 
+  #install.packages('googleVis')
+})
+```
+
+
+```{r, results='asis'}
+op <- options(gvis.plot.tag='chart')
+
+m = gvisMotionChart(
+  g,
+  idvar='country', 
+  timevar='year', 
+  xvar='log_gdpPercap', 
+  yvar='lifeExp', 
+  colorvar='continent',
+  sizevar='pop_m')
+plot(m)
+
+
+```
+
 #lol
 # 2olol
 
